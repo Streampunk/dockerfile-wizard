@@ -41,14 +41,6 @@ jobs:
     steps:
       - checkout
 
-      - run:
-          name: Add FFmpeg 4.1
-          command: apt-get update && add-apt-repository ppa:jonathonf/ffmpeg-4 && apt-get install libavcodec-dev libavformat-dev libavdevice-dev libavfilter-dev libavutil-dev libpostproc-dev libswresample-dev libswscale-dev
-
-      - run:
-          name: Delete apt list files
-          command: rm -rf /var/lib/apt/lists/*
-
       - run: bash scripts/generate.sh > Dockerfile
 
       - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
