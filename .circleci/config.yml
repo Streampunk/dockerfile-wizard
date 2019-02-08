@@ -6,7 +6,7 @@ image_config: &image_config
 
   IMAGE_NAME: testbeam
 
-  IMAGE_TAG: 10:4.1:1
+  IMAGE_TAG: 10:4.1
 
   # NOTE: if you're modifying this config.yml file manually
   # rather than using the included setup script,
@@ -54,7 +54,7 @@ jobs:
 
   test_image:
     docker:
-      - image: $DOCKER_USERNAME/testbeam:10:4.1:1
+      - image: $DOCKER_USERNAME/testbeam:10:4.1
         environment:
           <<: *image_config
 
