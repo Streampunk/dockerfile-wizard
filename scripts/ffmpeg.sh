@@ -2,7 +2,7 @@
 
 echo "RUN apt-get update"
 
-echo "add-apt-repository ppa:jonathonf/ffmpeg-4 \
+echo "RUN add-apt-repository ppa:jonathonf/ffmpeg-4 \
       && apt-get install libavcodec-dev libavformat-dev libavdevice-dev libavfilter-dev libavutil-dev libpostproc-dev libswresample-dev libswscale-dev"
 
 # delete all the apt list files since they're big and get stale quickly
