@@ -135,7 +135,10 @@ fi
 
 echo "RUN apt-get -y install software-properties-common \
       && add-apt-repository -y ppa:jonathonf/ffmpeg-4 \
+      && apt-get update \
       && apt-get -y install libavcodec-dev libavformat-dev libavdevice-dev libavfilter-dev libavutil-dev libpostproc-dev libswresample-dev libswscale-dev"
+
+echo "RUN ldconfig -p | grep avcodec"
 
 # delete all the apt list files since they're big and get stale quickly
 echo "RUN rm -rf /var/lib/apt/lists/*"
