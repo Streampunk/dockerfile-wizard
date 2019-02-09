@@ -6,7 +6,7 @@ image_config: &image_config
 
   IMAGE_NAME: testbeam
 
-  IMAGE_TAG: 10:4.1
+  IMAGE_TAG: 10-4.1
 
   # NOTE: if you're modifying this config.yml file manually
   # rather than using the included setup script,
@@ -45,16 +45,16 @@ jobs:
 
       - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
 
-      - run: docker build -t $DOCKER_USERNAME/$IMAGE_NAME:$IMAGE_TAG .
+      - run: docker build -t $DOCKER_ORGNAME/$IMAGE_NAME:$IMAGE_TAG .
 
-      - run: docker push $DOCKER_USERNAME/$IMAGE_NAME:$IMAGE_TAG && sleep 10
+      - run: docker push $DOCKER_ORGNAME/$IMAGE_NAME:$IMAGE_TAG && sleep 10
 
       - store_artifacts:
           path: Dockerfile
 
   test_image:
     docker:
-      - image: $DOCKER_USERNAME/testbeam:10:4.1
+      - image: $DOCKER_ORGNAME/testbeam:10-4.1
         environment:
           <<: *image_config
 
